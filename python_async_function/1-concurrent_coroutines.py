@@ -11,6 +11,7 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     delay = []
 
     async def append_result(list):
+        """Sorted list"""
         result = await list
         delay.append(result)
 
