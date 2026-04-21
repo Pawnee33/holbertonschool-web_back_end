@@ -1,2 +1,2 @@
 //Liste tous les documents avec un filtre name="Holberton school"
-db.school.find({name="Holberton school"})
+db.school.find({name:"Holberton school"})
