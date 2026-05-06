@@ -6,6 +6,6 @@ export default function handleProfileSignup() {
             console.log(`${promise[0].body} ${promise[1].firstName} ${promise[1].lastName}`)
         })
         .catch((error) => {
-             console.error("Signup system offline")
+             console.log("Signup system offline")
         }) 
 }
