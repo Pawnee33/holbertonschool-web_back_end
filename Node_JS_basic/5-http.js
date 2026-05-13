@@ -33,14 +33,13 @@ function countStudents(path) {
   });
 }
 
-
 const app = http.createServer((request, response) => {
   if (request.url === '/') {
     response.writeHead(200, { 'content-type': 'text/plain' });
     response.end('Hello Holberton School!');
   } else if (request.url === '/students') {
     response.writeHead(200, { 'content-type': 'text/plain' });
-    countStudents(process.argv[2])
+    countStudents(database)
       .then((resultat) => {
         response.end(`This is the list of our students\n${resultat}`);
       })
