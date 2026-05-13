@@ -38,14 +38,15 @@ const app = http.createServer((request, response) => {
     response.writeHead(200, { 'content-type': 'text/plain' });
     response.end('Hello Holberton School!');
   } else if (request.url === '/students') {
-    response.writeHead(200, { 'content-type': 'text/plain' });
     countStudents(database)
-      .then((resultat) => {
+    .then((resultat) => {
+        response.writeHead(200, { 'content-type': 'text/plain' });
         response.end(`This is the list of our students\n${resultat}`);
       })
-      .catch(() => {
-        response.end('Cannot load the database');
-      });
+    .catch(() => {
+      res.writeHead(500, { 'Content-Type': 'text/plain' }); // ← status 500
+      res.end('This is the list of our students\nCannot load the database');
+    });
   }
 });
 
