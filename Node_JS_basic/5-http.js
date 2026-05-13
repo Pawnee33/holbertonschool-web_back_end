@@ -39,14 +39,14 @@ const app = http.createServer((request, response) => {
     response.end('Hello Holberton School!');
   } else if (request.url === '/students') {
     countStudents(database)
-    .then((resultat) => {
+      .then((resultat) => {
         response.writeHead(200, { 'content-type': 'text/plain' });
         response.end(`This is the list of our students\n${resultat}`);
       })
-    .catch(() => {
-      res.writeHead(500, { 'Content-Type': 'text/plain' }); // ← status 500
-      res.end('This is the list of our students\nCannot load the database');
-    });
+      .catch(() => {
+        response.writeHead(500, { 'Content-Type': 'text/plain' }); // ← status 500
+        response.end('This is the list of our students\nCannot load the database');
+      });
   }
 });
 
