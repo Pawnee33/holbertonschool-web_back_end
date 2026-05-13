@@ -34,7 +34,5 @@ const app = http.createServer((request, response) => {
   }
 });
 const port = 1245;
-app.listen(port, () => {
-  console.log(`Server up and running on port ${port}`);
-});
+app.listen(port);
 module.exports = app;
